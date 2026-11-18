@@ -17,14 +17,15 @@
 
 | 版本 | 这一版的重点 | 安装包 |
 | --- | --- | --- |
-| **v1.3.0** | 阅读页中英对照（最新） | [lexue-english-1.3.0.apk](https://github.com/Cheney34/lexue-english/releases/download/v1.3.0/lexue-english-1.3.0.apk) |
+| **v1.3.1** | 导入自己的词书（xlsx → JSON）（最新） | [lexue-english-1.3.1.apk](https://github.com/Cheney34/lexue-english/releases/download/v1.3.1/lexue-english-1.3.1.apk) |
+| v1.3.0 | 阅读页中英对照 | [lexue-english-1.3.0.apk](https://github.com/Cheney34/lexue-english/releases/download/v1.3.0/lexue-english-1.3.0.apk) |
 | v1.2.4 | 内置联网查词修好 | [lexue-english-1.2.4.apk](https://github.com/Cheney34/lexue-english/releases/download/v1.2.4/lexue-english-1.2.4.apk) |
 | v1.2.3 | 深色正文反色、标题可点词 | [lexue-english-1.2.3.apk](https://github.com/Cheney34/lexue-english/releases/download/v1.2.3/lexue-english-1.2.3.apk) |
 | v1.2.2 | 修掉启动白屏与订阅源卡死 | [lexue-english-1.2.2.apk](https://github.com/Cheney34/lexue-english/releases/download/v1.2.2/lexue-english-1.2.2.apk) |
 
 下载后直接覆盖安装即可：沿用同一签名密钥，学习记录、词库进度与设置都不会丢。
 
-> 本仓库源码快照为 1.3.0（`main` 分支）。1.2.x 的安装包是当时实际构建的产物，源码未单独打快照。
+> 本仓库源码快照为 1.3.1（`main` 分支）。1.2.x 的安装包是当时实际构建的产物，源码未单独打快照。
 
 ---
 
