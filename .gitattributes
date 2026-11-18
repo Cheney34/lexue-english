@@ -1,0 +1,12 @@
+# 这个项目里有 PS1 带 BOM、JSON 带固定键序、以及一批二进制资源，
+# 全部关掉换行/编码的自动转换，保证 clone 出来与构建产物逐字节一致。
+* -text
+
+*.jar   binary
+*.so    binary
+*.png   binary
+*.jpg   binary
+*.jks   binary
+*.apk   binary
+*.traineddata binary
+*.zip   binary

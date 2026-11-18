@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  网络安全策略。
+
+  为什么放开明文 HTTP：
+
+  RSS 订阅源里有相当一部分至今只提供 http（用户自己添加的源更无从约束），
+  一刀切禁掉会让这些源直接连不上，而且报错信息还是"网络不通"，极难排查。
+  本应用不传输账号、密码、支付等任何敏感数据，请求的都是公开的 RSS 与
+  公开词典接口，所以这里允许明文；HTTPS 依旧按**系统信任链**校验证书
+  （不接受用户安装的证书，避免中间人风险被放大）。
+-->
+<network-security-config>
+    <base-config cleartextTrafficPermitted="true">
+        <trust-anchors>
+            <certificates src="system" />
+        </trust-anchors>
+    </base-config>
+</network-security-config>

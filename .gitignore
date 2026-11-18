@@ -1,0 +1,28 @@
+# 构建产物（不入库；安装包放在 GitHub Releases）
+build/
+*.apk
+*.idsig
+*.ap_
+*.dex
+*.class
+
+# 工具与测试的临时文件
+tools/_*
+*.tmp
+*.log
+
+# 本机环境
+local.properties
+.gradle/
+.gradle-home/
+.idea/
+*.iml
+
+# 系统垃圾
+Thumbs.db
+.DS_Store
+desktop.ini
+# 签名密钥与本地口令（公开仓库里不能有）
+keystore.jks
+*.jks
+tools/_local_secrets.*

@@ -1,0 +1,443 @@
+{
+  "note": "精选订阅源目录。cn=true 表示在境内网络实测可直连（2026-10 实测，返回有效 RSS）；cn=false 为海外源，境内连接会直接失败，默认关闭。地址随时可能失效，应用内可单独「测试连接」并自行增删改。",
+  "updatedAt": "2026-10-14",
+  "categories": [
+    {
+      "id": "learn",
+      "name": "英语学习",
+      "desc": "面向学习者，用词和句式相对可控",
+      "feeds": [
+        {
+          "id": "bne",
+          "name": "Breaking News English",
+          "url": "https://breakingnewsenglish.com/rss.xml",
+          "level": 2,
+          "cn": true,
+          "desc": "同一则新闻分七档难度改写，最适合循序渐进"
+        },
+        {
+          "id": "bbc6",
+          "name": "BBC 6 Minute English",
+          "url": "https://feeds.bbci.co.uk/learningenglish/english/features/6-minute-english/rss.xml",
+          "level": 2,
+          "cn": false,
+          "desc": "六分钟一集的教学节目。境内连接失败，需海外网络"
+        },
+        {
+          "id": "voa",
+          "name": "VOA Learning English",
+          "url": "https://learningenglish.voanews.com/api/zrqiteuyvi",
+          "level": 2,
+          "cn": false,
+          "desc": "慢速英语，用词受控。境内连接失败，需海外网络"
+        }
+      ]
+    },
+    {
+      "id": "news-cn",
+      "name": "中国英文媒体",
+      "desc": "国内可直连，报道中国视角的英文新闻",
+      "feeds": [
+        {
+          "id": "xinhua-en",
+          "name": "Xinhua · English",
+          "url": "https://www.xinhuanet.com/english/rss/worldrss.xml",
+          "level": 3,
+          "cn": true,
+          "desc": "新华社英文，单条短、用词规范，适合入门读新闻"
+        },
+        {
+          "id": "ecns",
+          "name": "中新社 · 英文",
+          "url": "https://www.ecns.cn/rss/rss.xml",
+          "level": 3,
+          "cn": true,
+          "desc": "中国新闻社英文版，更新量最大"
+        },
+        {
+          "id": "globaltimes",
+          "name": "Global Times",
+          "url": "https://www.globaltimes.cn/rss/outbrain.xml",
+          "level": 3,
+          "cn": true,
+          "desc": "环球时报英文版"
+        },
+        {
+          "id": "sixthtone",
+          "name": "Sixth Tone",
+          "url": "https://www.sixthtone.com/rss",
+          "level": 3,
+          "cn": true,
+          "desc": "面向海外读者的深度中国报道，句子偏长"
+        },
+        {
+          "id": "cgtn-world",
+          "name": "CGTN · World",
+          "url": "https://www.cgtn.com/subscribe/rss/section/world.xml",
+          "level": 3,
+          "cn": false,
+          "desc": "CGTN 国际频道。实测多数网络下返回 403，已标记为境外/不可用；需要中国新闻请改用新华社英文或 ECNS"
+        },
+        {
+          "id": "cgtn-tech",
+          "name": "CGTN · Tech & Sci",
+          "url": "https://www.cgtn.com/subscribe/rss/section/tech-sci.xml",
+          "level": 3,
+          "cn": false,
+          "desc": "CGTN 科技与科学频道，实测同样返回 403，已标记为不可用"
+        },
+        {
+          "id": "cgtn-china",
+          "name": "CGTN · China",
+          "url": "https://www.cgtn.com/subscribe/rss/section/china.xml",
+          "level": 3,
+          "cn": false,
+          "desc": "CGTN 国内频道，实测同样返回 403，已标记为不可用"
+        }
+      ]
+    },
+    {
+      "id": "news-intl",
+      "name": "国际新闻",
+      "desc": "标「可直连」的境内实测可用，其余需海外网络",
+      "feeds": [
+        {
+          "id": "france24",
+          "name": "France 24 · English",
+          "url": "https://www.france24.com/en/rss",
+          "level": 3,
+          "cn": true,
+          "desc": "法国国际频道英文版，境内可直连"
+        },
+        {
+          "id": "npr",
+          "name": "NPR · World",
+          "url": "https://feeds.npr.org/1004/rss.xml",
+          "level": 3,
+          "cn": true,
+          "desc": "美国公共广播，摘要较长、适合精读"
+        },
+        {
+          "id": "vice",
+          "name": "VICE",
+          "url": "https://www.vice.com/en/rss",
+          "level": 3,
+          "cn": true,
+          "desc": "青年文化与非虚构报道，偏口语"
+        },
+        {
+          "id": "bbc-news",
+          "name": "BBC News · World",
+          "url": "https://feeds.bbci.co.uk/news/world/rss.xml",
+          "level": 3,
+          "cn": false,
+          "desc": "境内连接失败，需海外网络"
+        },
+        {
+          "id": "gworld",
+          "name": "The Guardian · World",
+          "url": "https://www.theguardian.com/world/rss",
+          "level": 3,
+          "cn": false,
+          "desc": "境内连接失败，需海外网络"
+        },
+        {
+          "id": "nyt-world",
+          "name": "NYT · World",
+          "url": "https://rss.nytimes.com/services/xml/rss/nyt/World.xml",
+          "level": 3,
+          "cn": false,
+          "desc": "境内连接失败，需海外网络"
+        },
+        {
+          "id": "dw",
+          "name": "Deutsche Welle · English",
+          "url": "https://rss.dw.com/rdf/rss-en-all",
+          "level": 3,
+          "cn": false,
+          "desc": "境内连接失败，需海外网络"
+        },
+        {
+          "id": "aljazeera",
+          "name": "Al Jazeera · English",
+          "url": "https://www.aljazeera.com/xml/rss/all.xml",
+          "level": 3,
+          "cn": false,
+          "desc": "境内连接失败，需海外网络"
+        }
+      ]
+    },
+    {
+      "id": "tech",
+      "name": "科技",
+      "desc": "科技媒体与开发者社区",
+      "feeds": [
+        {
+          "id": "hn-best",
+          "name": "Hacker News · Best",
+          "url": "https://hnrss.org/best",
+          "level": 3,
+          "cn": true,
+          "desc": "技术社区高票讨论"
+        },
+        {
+          "id": "hn",
+          "name": "Hacker News · Front",
+          "url": "https://hnrss.org/frontpage",
+          "level": 3,
+          "cn": true,
+          "desc": "技术社区首页"
+        },
+        {
+          "id": "ars",
+          "name": "Ars Technica",
+          "url": "https://feeds.arstechnica.com/arstechnica/index",
+          "level": 3,
+          "cn": true,
+          "desc": "深度科技报道，摘要完整"
+        },
+        {
+          "id": "verge",
+          "name": "The Verge",
+          "url": "https://www.theverge.com/rss/index.xml",
+          "level": 3,
+          "cn": true,
+          "desc": "科技新闻与评测（Atom 格式）"
+        },
+        {
+          "id": "techcrunch",
+          "name": "TechCrunch",
+          "url": "https://techcrunch.com/feed/",
+          "level": 3,
+          "cn": true
+        },
+        {
+          "id": "wired",
+          "name": "WIRED",
+          "url": "https://www.wired.com/feed/rss",
+          "level": 3,
+          "cn": true
+        },
+        {
+          "id": "mit-tech",
+          "name": "MIT Technology Review",
+          "url": "https://www.technologyreview.com/feed/",
+          "level": 3,
+          "cn": true,
+          "desc": "麻省理工科技评论"
+        },
+        {
+          "id": "solidot",
+          "name": "Solidot 奇客资讯",
+          "url": "https://www.solidot.org/index.rss",
+          "level": 3,
+          "cn": true,
+          "desc": "中文科技资讯，标题多为英文"
+        },
+        {
+          "id": "oschina",
+          "name": "开源中国 · 资讯",
+          "url": "https://www.oschina.net/news/rss",
+          "level": 3,
+          "cn": true,
+          "desc": "中文技术资讯"
+        },
+        {
+          "id": "infoq-cn",
+          "name": "InfoQ 中文",
+          "url": "https://www.infoq.cn/feed",
+          "level": 3,
+          "cn": true,
+          "desc": "中文技术深度文章"
+        },
+        {
+          "id": "phoronix",
+          "name": "Phoronix",
+          "url": "https://www.phoronix.com/rss.php",
+          "level": 3,
+          "cn": true,
+          "desc": "Linux 硬件与内核测试"
+        },
+        {
+          "id": "slashdot",
+          "name": "Slashdot",
+          "url": "https://rss.slashdot.org/Slashdot/slashdotMain",
+          "level": 3,
+          "cn": true,
+          "desc": "老牌技术社区（RDF 格式）"
+        },
+        {
+          "id": "hackernoon",
+          "name": "Hacker Noon",
+          "url": "https://hackernoon.com/feed",
+          "level": 3,
+          "cn": true,
+          "desc": "开发者投稿，题材杂、偏口语"
+        },
+        {
+          "id": "devto",
+          "name": "DEV Community",
+          "url": "https://dev.to/feed",
+          "level": 3,
+          "cn": true,
+          "desc": "开发者社区博客"
+        }
+      ]
+    },
+    {
+      "id": "science",
+      "name": "科学",
+      "desc": "科研机构与科普媒体",
+      "feeds": [
+        {
+          "id": "nature",
+          "name": "Nature",
+          "url": "https://www.nature.com/nature.rss",
+          "level": 3,
+          "cn": true,
+          "desc": "自然杂志（RDF 格式），学术性强"
+        },
+        {
+          "id": "sciencedaily",
+          "name": "ScienceDaily",
+          "url": "https://www.sciencedaily.com/rss/all.xml",
+          "level": 3,
+          "cn": true,
+          "desc": "科普摘要，难度适中"
+        },
+        {
+          "id": "physorg",
+          "name": "Phys.org",
+          "url": "https://phys.org/rss-feed/",
+          "level": 3,
+          "cn": true
+        },
+        {
+          "id": "nasa",
+          "name": "NASA",
+          "url": "https://www.nasa.gov/rss/dyn/breaking_news.rss",
+          "level": 3,
+          "cn": true
+        },
+        {
+          "id": "quanta",
+          "name": "Quanta Magazine",
+          "url": "https://api.quantamagazine.org/feed/",
+          "level": 3,
+          "cn": true,
+          "desc": "数学与理论科学长文，文笔好"
+        },
+        {
+          "id": "who",
+          "name": "WHO · News",
+          "url": "https://www.who.int/rss-feeds/news-english.xml",
+          "level": 3,
+          "cn": true,
+          "desc": "世界卫生组织新闻"
+        },
+        {
+          "id": "smithsonian",
+          "name": "Smithsonian Magazine",
+          "url": "https://www.smithsonianmag.com/rss/latest_articles/",
+          "level": 3,
+          "cn": true,
+          "desc": "历史、艺术与自然科学"
+        },
+        {
+          "id": "nautilus",
+          "name": "Nautilus",
+          "url": "https://nautil.us/feed/",
+          "level": 3,
+          "cn": true,
+          "desc": "跨学科科普，适合精读"
+        }
+      ]
+    },
+    {
+      "id": "dev",
+      "name": "开发",
+      "desc": "写给程序员的英文内容",
+      "feeds": [
+        {
+          "id": "mdn",
+          "name": "MDN Blog",
+          "url": "https://developer.mozilla.org/en-US/blog/rss.xml",
+          "level": 3,
+          "cn": true,
+          "desc": "Mozilla 开发者博客，Web 标准"
+        },
+        {
+          "id": "smashing",
+          "name": "Smashing Magazine",
+          "url": "https://www.smashingmagazine.com/feed/",
+          "level": 3,
+          "cn": true,
+          "desc": "前端与设计长文"
+        },
+        {
+          "id": "css-tricks",
+          "name": "CSS-Tricks",
+          "url": "https://css-tricks.com/feed/",
+          "level": 3,
+          "cn": true,
+          "desc": "前端技巧"
+        },
+        {
+          "id": "lwn",
+          "name": "LWN.net",
+          "url": "https://lwn.net/headlines/rss",
+          "level": 3,
+          "cn": true,
+          "desc": "Linux 内核与开源深度报道"
+        }
+      ]
+    },
+    {
+      "id": "life",
+      "name": "生活与文化",
+      "desc": "轻松一点的英文内容",
+      "feeds": [
+        {
+          "id": "lifehacker",
+          "name": "Lifehacker",
+          "url": "https://lifehacker.com/rss",
+          "level": 2,
+          "cn": true,
+          "desc": "生活技巧，篇幅短、口语化"
+        },
+        {
+          "id": "atlas",
+          "name": "Atlas Obscura",
+          "url": "https://www.atlasobscura.com/feeds/latest",
+          "level": 3,
+          "cn": true,
+          "desc": "世界冷门地理与人文故事，很适合找记忆宫殿的地点桩"
+        },
+        {
+          "id": "aeon",
+          "name": "Aeon",
+          "url": "https://aeon.co/feed.rss",
+          "level": 3,
+          "cn": true,
+          "desc": "哲学与社会长文，难度偏高"
+        },
+        {
+          "id": "sspai",
+          "name": "少数派",
+          "url": "https://sspai.com/feed",
+          "level": 3,
+          "cn": true,
+          "desc": "中文数字生活"
+        },
+        {
+          "id": "qbitai",
+          "name": "量子位",
+          "url": "https://www.qbitai.com/feed",
+          "level": 3,
+          "cn": true,
+          "desc": "中文 AI 资讯"
+        }
+      ]
+    }
+  ]
+}

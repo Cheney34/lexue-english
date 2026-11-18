@@ -1,0 +1,276 @@
+{
+  "v": 1,
+  "note": "内置分级英文短文，可按词书难度匹配推荐；正文中的高亮词由前端按当前词书自动计算。",
+  "articles": [
+    {
+      "id": "l1-coffee",
+      "title": "A Cup of Morning Coffee",
+      "level": 1,
+      "topic": "日常生活",
+      "summary": "一个再普通不过的清晨，一杯咖啡如何把一天慢慢叫醒。",
+      "keywords": [
+        { "w": "routine", "t": "n. 日常惯例" },
+        { "w": "delicious", "t": "adj. 美味的" },
+        { "w": "window", "t": "n. 窗户" }
+      ],
+      "body": [
+        "My morning always starts in the same way. The alarm rings at six thirty, and I stay in bed for two more minutes. Then I walk to the kitchen and put water on the stove. While the water heats, I open the window and look outside. The street is still quiet, and a few birds sit on the wire.",
+        "I grind the coffee beans by hand. The sound is loud but warm, like a small motor. When the water is ready, I pour it slowly over the powder. The kitchen fills with a rich smell that reaches the bedroom and wakes up the rest of the house.",
+        "I do not drink my coffee fast. I sit at the table, hold the cup with both hands, and think about the day. Sometimes I write a short list of three things I want to finish. Most days I do not finish all of them, but the list still helps.",
+        "People often say that morning habits are not important. I disagree. A small routine tells your body that the day has begun. For me, a warm cup of coffee is a gentle start, and a gentle start makes every other hour easier."
+      ]
+    },
+    {
+      "id": "l1-roof-garden",
+      "title": "The Small Garden on the Roof",
+      "level": 1,
+      "topic": "生活与自然",
+      "summary": "把一座城市楼顶变成菜园，邻居之间因此熟络起来。",
+      "keywords": [
+        { "w": "roof", "t": "n. 屋顶" },
+        { "w": "soil", "t": "n. 土壤" },
+        { "w": "neighbour", "t": "n. 邻居" }
+      ],
+      "body": [
+        "On the top of our building there is a small garden. It began three years ago with two boxes of tomatoes. A neighbour named Lin carried the soil up eight floors, one bag at a time, because the lift was too small for a cart.",
+        "Today the roof holds more than twenty boxes. We grow tomatoes, peppers, mint and a kind of small green onion that grows back very fast. Everybody who takes part has one box. If you are away for a week, another person waters your plants.",
+        "The garden has changed more than the roof. Before, people said hello in the lift and then looked at their phones. Now we stand between the boxes and talk about weather, prices and children. Last summer we cooked a meal together with food from our own boxes.",
+        "A city is often described as a place of strangers. I think a city is simply a place where we have not yet found a reason to speak. A few bags of soil can be a very good reason."
+      ]
+    },
+    {
+      "id": "l1-bicycles",
+      "title": "Why Cities Need More Bicycles",
+      "level": 1,
+      "topic": "城市交通",
+      "summary": "自行车不是落后的象征，而是解决拥堵与健康的低成本方案。",
+      "keywords": [
+        { "w": "traffic", "t": "n. 交通" },
+        { "w": "pollution", "t": "n. 污染" },
+        { "w": "reduce", "t": "v. 减少" }
+      ],
+      "body": [
+        "Ten years ago, my city built a new road to solve the traffic problem. Two years later, the new road was as slow as the old one. This is a common story. When you build more space for cars, more cars appear.",
+        "Bicycles work in a different way. A bicycle takes up very little space, makes no noise and needs no fuel. In the morning rush hour, a person on a bike often arrives faster than a person in a car, especially for trips under five kilometres.",
+        "There is also the question of health. Riding for thirty minutes a day is good exercise, and it costs nothing. Every trip we replace with a bicycle reduces pollution a little, and reduces our own stress as well.",
+        "Of course, a bicycle is not perfect. It is hard in heavy rain, and it is dangerous on streets without safe lanes. Cities that want more bicycles must build real lanes, not just paint lines on the road. But when the lanes exist, people use them."
+      ]
+    },
+    {
+      "id": "l1-library",
+      "title": "My First Day in the University Library",
+      "level": 1,
+      "topic": "学习生活",
+      "summary": "第一次走进大学图书馆，学会的其实是「如何安静地专注」。",
+      "keywords": [
+        { "w": "shelf", "t": "n. 书架" },
+        { "w": "borrow", "t": "v. 借入" },
+        { "w": "concentrate", "t": "v. 专注" }
+      ],
+      "body": [
+        "My first day in the university library was not about books. It was about rules. I learned that I could borrow ten books at a time, that the reading rooms open at seven, and that you must put your phone on silent before you go in.",
+        "I found a seat by the window and put my things down. For twenty minutes I could not concentrate. Everyone around me was writing, reading or taking notes, and the silence felt heavy. Then something changed. Because nobody was talking, I stopped expecting to be interrupted, and my mind finally settled.",
+        "By noon I had read forty pages and filled three pages of notes. At home I would have read four pages and checked my phone twenty times. The books were the same. The difference was the room.",
+        "I still go there three times a week. The library taught me a simple lesson: attention is not only a personal skill. It also depends on where you sit and who sits near you."
+      ]
+    },
+    {
+      "id": "l1-cat",
+      "title": "The Cat That Waits by the Window",
+      "level": 1,
+      "topic": "动物与情感",
+      "summary": "一只每天准时守在窗边的猫，让主人重新理解了「等待」这件事。",
+      "keywords": [
+        { "w": "habit", "t": "n. 习惯" },
+        { "w": "patient", "t": "adj. 耐心的" },
+        { "w": "shadow", "t": "n. 影子" }
+      ],
+      "body": [
+        "My cat, Mianmian, has one fixed habit. Every afternoon at about five, she jumps onto the wide window sill and sits down. She does not sleep. She watches the street, and her tail moves slowly from side to side.",
+        "I asked my mother why she does this. My mother laughed and said: she is waiting for you. I did not believe it at first. But the time is always the same, and it is always about twenty minutes before I come home.",
+        "A cat does not understand clocks. What she understands is the light. In winter, five o'clock is already dark; in summer, the street is still bright. Somehow she still knows when the day is ending.",
+        "Now when I walk home and see her small shadow in the window, I walk a little faster. It is strange and rather wonderful to know that someone is waiting, with more patience than any person would have."
+      ]
+    },
+    {
+      "id": "l2-sleep",
+      "title": "How Sleep Rebuilds the Brain",
+      "level": 2,
+      "topic": "健康与科学",
+      "summary": "睡眠不是关机，而是一场高强度的整理工作：记忆被筛选、加固与重排。",
+      "keywords": [
+        { "w": "consolidate", "t": "v. 巩固" },
+        { "w": "retain", "t": "v. 保留" },
+        { "w": "deprive", "t": "v. 剥夺" }
+      ],
+      "body": [
+        "For a long time, sleep looked like a state of doing nothing. That view has changed completely. During sleep, the brain runs a kind of maintenance programme that cannot run while we are awake.",
+        "The most surprising discovery concerns memory. New information is first stored in a fragile form. During deep sleep, the brain replays the day's events at high speed and moves the important parts into more permanent storage. Students who sleep after studying retain noticeably more than students who study the same material and then stay awake.",
+        "Sleep also appears to clean. The spaces between brain cells widen, allowing fluid to carry away waste products that build up during the day. One of these wastes is associated with neurodegenerative disease, which is why long-term sleep deprivation is treated as a serious health risk rather than simple laziness.",
+        "The practical lesson is uncomfortable but clear. Sleeping less to gain study time usually loses time: you remember less, think more slowly, and make more mistakes the next morning. The cheapest way to improve your learning may be to go to bed earlier."
+      ]
+    },
+    {
+      "id": "l2-habits",
+      "title": "The Quiet Power of Small Habits",
+      "level": 2,
+      "topic": "心理与自我管理",
+      "summary": "真正改变生活的往往不是决心，而是设计得足够小的习惯。",
+      "keywords": [
+        { "w": "motivation", "t": "n. 动机" },
+        { "w": "consistent", "t": "adj. 一贯的" },
+        { "w": "trigger", "t": "n. 触发点" }
+      ],
+      "body": [
+        "Most people begin with motivation and end with disappointment. The pattern is familiar: a strong decision on Sunday evening, three energetic days, and then a slow return to the old routine. The problem is not weakness of character. It is the size of the goal.",
+        "Behaviour researchers suggest a different approach. Instead of deciding how much you want to change, decide how small the new behaviour can be while still being worth doing. Ten push-ups, two pages of a book, one new word before breakfast. A goal that feels slightly too easy is far more useful than one that feels impressive.",
+        "The second step is to attach the new behaviour to an existing habit. After I pour my coffee, I review five words. The old habit becomes the trigger, and no willpower is required to remember the intention. Over months, this kind of design is remarkably consistent.",
+        "Small habits are also easier to keep when a day goes badly. Missing one session matters far less than the story we tell ourselves afterwards, which is usually the beginning of quitting. The rule is not perfection. The rule is never miss twice."
+      ]
+    },
+    {
+      "id": "l2-languages",
+      "title": "Why Do Languages Disappear?",
+      "level": 2,
+      "topic": "文化与语言",
+      "summary": "每两周就有一种语言停止被使用，我们失去的不只是词汇。",
+      "keywords": [
+        { "w": "endangered", "t": "adj. 濒危的" },
+        { "w": "transmit", "t": "v. 传递" },
+        { "w": "heritage", "t": "n. 遗产" }
+      ],
+      "body": [
+        "Linguists estimate that several thousand languages are spoken in the world today, and that roughly half of them are endangered. In many cases the cause is not violence but convenience. When a language has no economic value in the city, parents naturally choose to raise their children in the dominant language.",
+        "The process usually skips one generation. Grandparents speak the old language fluently, parents understand it but rarely use it, and children hear only a few phrases. Once a generation grows up without the language, the knowledge attached to it is very difficult to recover.",
+        "What disappears is not merely a list of words. Many endangered languages encode local knowledge about plants, weather and medicine that no other source records. They also contain ways of describing relationships and time that do not translate neatly into a major language.",
+        "There is good news as well. Digital tools have made it cheaper to record speakers and to publish material, and some communities have succeeded in bringing their language back into schools. The effort is rarely about keeping a language pure. It is about giving the next generation a real choice."
+      ]
+    },
+    {
+      "id": "l2-plastic",
+      "title": "Plastic in the Ocean: A Slow Crisis",
+      "level": 2,
+      "topic": "环境",
+      "summary": "海洋塑料的问题不在于「一大片垃圾」，而在于看不见的碎裂。",
+      "keywords": [
+        { "w": "debris", "t": "n. 碎片、残骸" },
+        { "w": "fragment", "t": "v./n. 碎裂；碎片" },
+        { "w": "marine", "t": "adj. 海洋的" }
+      ],
+      "body": [
+        "When people imagine ocean plastic, they picture an island of bottles floating on the surface. That image is misleading. Most plastic in the sea is not visible to the eye, and it is not concentrated in one place.",
+        "Sunlight and waves break plastic objects into smaller and smaller pieces. Once fragments fall below a few millimetres, they are extremely difficult to collect, and they spread across the entire water column. Marine animals mistake them for food, and the particles then move up the food chain.",
+        "Cleaning the ocean is therefore a partial solution at best. Collection projects can remove large items near coasts, which prevents further fragmentation, but no technology can filter a whole ocean. The decisive factor is how much plastic enters the water in the first place.",
+        "That shifts attention to design and policy: fewer single-use items, better recycling systems, and producers who are responsible for what they sell. The crisis is slow, and slow problems are exactly the ones that habits and regulation, rather than emergency action, are best able to address."
+      ]
+    },
+    {
+      "id": "l2-remote",
+      "title": "The Long Term Effects of Remote Work",
+      "level": 2,
+      "topic": "工作方式",
+      "summary": "远程办公解决了通勤，却制造了新的边界问题。",
+      "keywords": [
+        { "w": "flexible", "t": "adj. 灵活的" },
+        { "w": "boundary", "t": "n. 边界" },
+        { "w": "collaboration", "t": "n. 协作" }
+      ],
+      "body": [
+        "Remote work was once a favour granted to a few employees. Within a couple of years it became, for many offices, the default arrangement. The benefits appeared immediately: no commute, fewer interruptions, and a working day that could be arranged around family life.",
+        "The costs took longer to show. When the office is also the bedroom, the boundary between working and resting quietly disappears. Studies of remote employees repeatedly find longer hours rather than shorter ones, together with a sense of always being partially at work.",
+        "Collaboration suffers in a subtler way. Planned meetings work well online, but informal exchange does not. The unexpected conversation by the coffee machine is where many small problems are solved and where new colleagues learn how things are done. Removing it costs something, even if the loss is hard to measure.",
+        "Most organisations are now settling on a mixed model: two or three days together, the rest at home. The interesting question is no longer whether remote work is efficient, but how to keep the flexibility without losing the informal contact that makes a team a team."
+      ]
+    },
+    {
+      "id": "l3-attention",
+      "title": "The Economics of Attention",
+      "level": 3,
+      "topic": "经济与科技",
+      "summary": "当注意力成为稀缺资源，免费产品的真实价格是被重新定价的时间。",
+      "keywords": [
+        { "w": "scarcity", "t": "n. 稀缺" },
+        { "w": "incentive", "t": "n. 激励" },
+        { "w": "engagement", "t": "n. 参与度" }
+      ],
+      "body": [
+        "Herbert Simon observed, long before the internet, that a wealth of information creates a poverty of attention. The prediction has proved accurate in an unexpected way: the scarcity of attention did not merely emerge, it was deliberately manufactured by business models that depend on it.",
+        "Consider what an advertising-funded platform is actually optimising. It is not optimising for user satisfaction in any direct sense, nor for informativeness. It is optimising for the duration and frequency of engagement, because those quantities determine revenue. Algorithms are therefore selected not by editors but by measured outcomes, and the outcomes that spread fastest are frequently those that provoke strong emotion.",
+        "This creates a structural incentive that no individual designer can easily resist. A recommendation system that reduces daily usage by twenty per cent is, within its own operating logic, a failure, even if every user would report feeling better. The metric and the interest of the user have quietly diverged.",
+        "Regulation has begun to address this through transparency and default settings, but the deeper issue is measurement. As long as the value of a product is defined by time captured rather than value delivered, attention will continue to be extracted. The alternative is not a ban on persuasion; it is a different account of what counts as success."
+      ]
+    },
+    {
+      "id": "l3-memory-palace",
+      "title": "Memory Palaces: An Ancient Technique",
+      "level": 3,
+      "topic": "认知科学",
+      "summary": "把抽象信息放进熟悉的空间，是两千年前就已成熟的记忆技术。",
+      "keywords": [
+        { "w": "spatial", "t": "adj. 空间的" },
+        { "w": "retrieval", "t": "n. 提取" },
+        { "w": "vivid", "t": "adj. 生动的" }
+      ],
+      "body": [
+        "The technique known as the memory palace is usually attributed to a Greek poet who, according to legend, identified the bodies of guests at a collapsed banquet by recalling where each of them had been sitting. Whatever its origin, the method it inspired has been taught continuously for more than two thousand years.",
+        "The principle exploits an asymmetry in human memory. We are poor at retaining arbitrary lists, but remarkably good at remembering places and images. The method therefore translates information into the format memory already handles well: you walk through a familiar building, and at each location you deposit a vivid image that stands for the item you wish to recall.",
+        "Its effectiveness depends on details that are easy to underestimate. The route must be known so well that it requires no thought. The images must be specific, exaggerated and preferably absurd, because distinctive material is easier to retrieve than reasonable material. And crucially, the technique must be practiced; the first attempt almost always feels slow and artificial.",
+        "Modern research on spatial memory and on the role of mental imagery offers a plausible account of why the method works, though the effects of training remain debated. What is not in doubt is that the palace is a technique rather than a talent. It is learned, and it improves with use, which places it in an unusual category: an ancient tool that remains genuinely useful in an age of search engines."
+      ]
+    },
+    {
+      "id": "l3-heat",
+      "title": "Urban Heat Islands and the Shape of Cities",
+      "level": 3,
+      "topic": "城市与气候",
+      "summary": "城市比郊区更热，而温度差异在很大程度上是设计的结果。",
+      "keywords": [
+        { "w": "albedo", "t": "n. 反射率" },
+        { "w": "mitigate", "t": "v. 缓解" },
+        { "w": "impervious", "t": "adj. 不透水的" }
+      ],
+      "body": [
+        "Thermometers placed across a large city on a still summer night typically record differences of several degrees between the dense centre and the surrounding countryside. This phenomenon, the urban heat island, is not merely a curiosity: it raises cooling demand, worsens air quality and increases mortality during heatwaves.",
+        "Four mechanisms account for most of the effect. Dark surfaces such as asphalt absorb solar radiation and re-emit it slowly, so the city continues to radiate heat long after sunset. Impervious surfaces prevent evaporation, removing the cooling that would otherwise occur. Tall buildings trap radiation between them, reducing the escape of heat to the sky. And waste heat from vehicles and air conditioning is released directly into the streets.",
+        "Because the causes are structural, the remedies are as well, and they interact. Increasing the albedo of roofs and pavements reduces absorption. Planting street trees provides shade and, more importantly, transpiration. Permeable surfaces allow water to evaporate. None of these measures is sufficient alone, and each competes with other demands on scarce urban space.",
+        "The distributional dimension is easily overlooked. Heat exposure within a single city is uneven, correlating strongly with income, tree cover and the age of housing stock. Addressing the urban heat island is therefore not only a technical problem of materials and engineering but a question of who receives the benefits of urban design."
+      ]
+    },
+    {
+      "id": "l3-choice",
+      "title": "The Paradox of Choice",
+      "level": 3,
+      "topic": "行为心理",
+      "summary": "选项越多，决定越难，满意度反而越低。",
+      "keywords": [
+        { "w": "assortment", "t": "n. 品类组合" },
+        { "w": "overload", "t": "n. 过载" },
+        { "w": "regret", "t": "n. 后悔" }
+      ],
+      "body": [
+        "A widely cited experiment offered shoppers a display of either six or twenty-four varieties of jam. The larger assortment attracted more attention, as any retailer would expect. Yet customers who encountered the smaller display were substantially more likely to make a purchase. Abundance of choice drew interest and simultaneously inhibited action.",
+        "Several mechanisms appear to be at work. Evaluating many alternatives consumes time and cognitive effort, and the effort rises faster than the number of options. Comparison also invites regret: the more attractive alternatives you decline, the easier it becomes to imagine having chosen better, which reduces satisfaction with the choice you actually made.",
+        "The effect is not unlimited, and this qualification matters. Some choice is clearly better than none, and moderate assortments generally outperform both extremes. Individuals also differ; people who seek the best possible outcome tend to suffer more from large menus than people who are content with something adequate.",
+        "A practical implication is that good design reduces rather than expands the decision. Defaults, recommendations and sensible categories are not paternalism so much as an acknowledgment of limited attention. The opposite approach, presenting everything and expecting the user to sort it out, is not neutrality; it is a transfer of cost."
+      ]
+    },
+    {
+      "id": "l3-gene",
+      "title": "Genetic Editing and the Limits of Intervention",
+      "level": 3,
+      "topic": "生命伦理",
+      "summary": "技术已经能够修改人类基因，真正困难的是划出那条线。",
+      "keywords": [
+        { "w": "therapeutic", "t": "adj. 治疗的" },
+        { "w": "consent", "t": "n. 同意" },
+        { "w": "heritable", "t": "adj. 可遗传的" }
+      ],
+      "body": [
+        "Gene editing tools have made precise changes to DNA far cheaper and more reliable than was imaginable a generation ago. The most immediate consequences are therapeutic: disorders caused by a single faulty gene can now be approached by correcting the gene itself rather than by managing symptoms indefinitely.",
+        "The ethical difficulty arises at a specific boundary. Editing the cells of a patient affects only that patient, and the usual framework of medical consent applies. Editing embryos or germ cells, by contrast, produces changes that are inherited by every subsequent generation. Those future individuals cannot consent, and the consequences of any error cannot be undone.",
+        "Beyond safety lies the question of purpose. Treating a severe disease and enhancing a trait exist on a continuum, but the political and commercial pressures at work differ sharply. Once the capacity exists, its use for competitive advantage is difficult to prevent, and the benefits are likely to be distributed according to wealth rather than need.",
+        "This is why most scientific bodies have argued for a moratorium on heritable editing while permitting somatic therapy to proceed. Such a pause is not a rejection of the technology. It is an attempt to decide, deliberately and in public, where the line should be drawn, rather than discovering it afterwards through a series of irreversible cases."
+      ]
+    }
+  ]
+}
