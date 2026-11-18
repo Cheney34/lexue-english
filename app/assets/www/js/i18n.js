@@ -144,7 +144,27 @@
     biDoneFail:   ['有几段没翻出来，点那段可以重试', '有幾段沒翻出來，點那段可以重試', 'Some paragraphs failed; tap one to retry'],
     biFail:       ['这段没翻出来，点一下重试', '這段沒翻出來，點一下重試', 'Translation failed; tap to retry'],
     biQuota:      ['免费翻译额度用完了，稍后再试；也可以点「原文」去浏览器看', '免費翻譯額度用完了，稍後再試；也可以點「原文」去瀏覽器看', 'Free translation quota used up; retry later or open the original'],
-    biRetryHint:  ['点一下重新翻译这一段', '點一下重新翻譯這一段', 'Tap to retranslate this paragraph']
+    biRetryHint:  ['点一下重新翻译这一段', '點一下重新翻譯這一段', 'Tap to retranslate this paragraph'],
+    /* 导入词书（1.3.1）：词书数据不进 APK、不进仓库，只落本机 */
+    importBook:   ['导入词书（JSON 文件）', '匯入詞書（JSON 檔案）', 'Import word book (JSON)'],
+    importBookHint: ['把 xlsx 词书用 tools/xlsx_to_book.ps1 转成 JSON 后在这里导入；导入的词书只保存在本机，不会写进词库文件。', '把 xlsx 詞書用 tools/xlsx_to_book.ps1 轉成 JSON 後在這裡匯入；匯入的詞書只保存在本機，不會寫進詞庫檔案。', 'Convert an xlsx word book to JSON with tools/xlsx_to_book.ps1, then import it here. Imported books stay on this device.'],
+    customBook:   ['自定义', '自訂', 'Custom'],
+    delBook:      ['删除', '刪除', 'Delete'],
+    delBookTitle: ['删除词书', '刪除詞書', 'Delete word book'],
+    delBookBody:  ['确定删除「', '確定刪除「', 'Delete "'],
+    delBookBody2: ['」？只会删掉这本词书，学习记录不受影响。', '」？只會刪掉這本詞書，學習記錄不受影響。', '"? Only this book is removed; your study records stay.'],
+    importOpening:['正在打开文件选择器…', '正在開啟檔案選擇器…', 'Opening file picker…'],
+    importBadJson:['这不是有效的 JSON 文件', '這不是有效的 JSON 檔案', 'Not a valid JSON file'],
+    importEmpty:  ['文件里没有可用的词书', '檔案裡沒有可用的詞書', 'No usable word book in this file'],
+    importDone:   ['已导入 ', '已匯入 ', 'Imported '],
+    importDoneEnd:[' 本词书', ' 本詞書', ' word book(s)'],
+    readFailed:   ['读取失败', '讀取失敗', 'Read failed'],
+    importFailed: ['导入失败：', '匯入失敗：', 'Import failed: '],
+    noStore:      ['本地存储不可用，无法保存导入的词书', '本機儲存不可用，無法儲存匯入的詞書', 'Local storage unavailable; cannot save the imported book'],
+    unnameBook:   ['未命名词书', '未命名詞書', 'Untitled book'],
+    customDesc:   ['自定义词书 · ', '自訂詞書 · ', 'Custom book · '],
+    wordUnit:     [' 词', ' 詞', ' words'],
+    deletedOk:    ['已删除', '已刪除', 'Deleted']
   };
 
   function idx() { return current === 'en' ? 2 : (current === 'zh-Hant' ? 1 : 0); }

@@ -427,10 +427,11 @@
   /* ============================== 导出/导入 ============================== */
 
   function exportAll() {
-    return Promise.all([listCards(), listImages(), listPalaces()]).then(function (r) {
+    return Promise.all([listCards(), listImages(), listPalaces(), getMeta('cbooks')]).then(function (r) {
       return JSON.stringify({
         v: 1, exportedAt: Date.now(),
-        settings: settings, cards: r[0], images: r[1], palaces: r[2]
+        settings: settings, cards: r[0], images: r[1], palaces: r[2],
+        books: r[3] || []
       });
     });
   }
@@ -441,6 +442,7 @@
     (o.cards || []).forEach(function (c) { jobs.push(put('cards', c)); });
     (o.images || []).forEach(function (c) { jobs.push(put('images', c)); });
     (o.palaces || []).forEach(function (c) { jobs.push(put('palaces', c)); });
+    if (o.books && o.books.length) jobs.push(putMeta('cbooks', o.books));
     cardCache = null;
     return Promise.all(jobs);
   }

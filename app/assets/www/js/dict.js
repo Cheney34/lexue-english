@@ -18,6 +18,66 @@
   var bookCache = {};
   var loading = null;
 
+  /* ---------------------- 用户导入的词书（1.3.1） ----------------------
+   * 存在 IndexedDB 的 meta 键 'cbooks'，形如：
+   *   [{ id, name, desc, color, words: [ [单词, 音标, 释义], ... ] }]
+   * 内置 26k 词库不能改（随 APK 分发），所以导入词的释义单独放 extra 表，
+   * lookup()/lemma() 查不到内置词时落到这里，于是查词面板、复习、阅读点词
+   * 都能正常显示这些词。
+   */
+  var customBooks = [];   // 展示用的词书元信息
+  var extra = {};         // 小写单词 -> 自定义词条
+  var extraByBook = {};   // bookId -> 词条数组
+
+  function setCustomBooks(list) {
+    customBooks = [];
+    extra = {};
+    extraByBook = {};
+    bookWordsCache = {};
+    var arr = list || [];
+    for (var i = 0; i < arr.length; i++) {
+      var b = arr[i];
+      if (!b || !b.id) continue;
+      var meta = {
+        id: b.id, name: b.name || b.id, desc: b.desc || '',
+        order: 900 + i, color: b.color || '#6b7280', count: 0, custom: true
+      };
+      var ents = [];
+      var ws = b.words || [];
+      for (var k = 0; k < ws.length; k++) {
+        var w = ws[k];
+        var word = String((w && w[0]) || '').trim();
+        if (!word) continue;
+        var key = word.toLowerCase();
+        var e = extra[key];
+        if (!e) {
+          e = {
+            i: -1, word: word, phonetic: String((w && w[1]) || '').trim(),
+            trans: String((w && w[2]) || '').trim(), tag: '', rank: 0,
+            custom: true, books: []
+          };
+          extra[key] = e;
+        }
+        if (e.books.indexOf(meta.id) < 0) e.books.push(meta.id);
+        if (ents.indexOf(e) < 0) ents.push(e);
+      }
+      meta.count = ents.length;
+      customBooks.push(meta);
+      extraByBook[meta.id] = ents;
+    }
+  }
+
+  function getCustomBooks() { return customBooks; }
+
+  /** 从本地存储装载自定义词书；没有 Store 时安静返回 */
+  function loadCustom() {
+    if (!global.Store || typeof Store.getMeta !== 'function') return Promise.resolve(false);
+    return Store.getMeta('cbooks').then(function (v) {
+      setCustomBooks(v && v.length ? v : []);
+      return true;
+    }, function () { return false; });
+  }
+
   function load() {
     if (loading) return loading;
     loading = Promise.all([
@@ -34,7 +94,7 @@
 
   function ready() { return !!data; }
   function wordCount() { return data ? data.count : 0; }
-  function getBooks() { return books; }
+  function getBooks() { return books.concat(customBooks); }
 
   function entryAt(i) {
     if (!data || i < 0 || i >= data.w.length) return null;
@@ -49,18 +109,21 @@
   }
 
   function lookup(word) {
-    if (!data || !word) return null;
+    if (!word) return null;
     var w = String(word).toLowerCase().replace(/[^a-z'\-]/g, '');
     if (!w) return null;
-    var i = index[w];
-    if (i !== undefined) return entryAt(i);
+    if (data) {
+      var i = index[w];
+      if (i !== undefined) return entryAt(i);
+    }
+    if (extra[w]) return extra[w];
     return null;
   }
 
   /** 简易词形还原：OCR / 文章里遇到的屈折形式尽量回到原形 */
   var lemmaCache = {};
   function lemma(word) {
-    if (!data || !word) return null;
+    if (!word) return null;
     var w = String(word).toLowerCase();
     if (lemmaCache[w] !== undefined) return lemmaCache[w];
     var hit = lookup(w);
@@ -94,6 +157,8 @@
   function inBook(entry, bookId) {
     if (!entry) return false;
     if (!bookId || bookId === 'all') return true;
+    if (entry.custom) return (entry.books || []).indexOf(bookId) >= 0;
+    if (extraByBook[bookId]) return false;   // 自定义词书只装导入文件里的词
     if (bookId === 'core') return entry.rank > 0 && entry.rank <= 3000;
     var ch = BOOK_TAG[bookId];
     if (!ch) return true;
@@ -103,6 +168,7 @@
   var bookWordsCache = {};
   function bookEntries(bookId) {
     if (bookWordsCache[bookId]) return bookWordsCache[bookId];
+    if (extraByBook[bookId]) return (bookWordsCache[bookId] = extraByBook[bookId]);
     var out = [];
     if (!data) return out;
     for (var i = 0; i < data.w.length; i++) {
@@ -114,6 +180,7 @@
   }
 
   function bookCount(bookId) {
+    if (extraByBook[bookId]) return extraByBook[bookId].length;
     if (bookId === 'core') {
       var b = bookById('core');
       return b ? b.count : 0;
@@ -123,6 +190,7 @@
 
   function bookById(id) {
     for (var i = 0; i < books.length; i++) if (books[i].id === id) return books[i];
+    for (var j = 0; j < customBooks.length; j++) if (customBooks[j].id === id) return customBooks[j];
     return { id: id, name: id, desc: '', count: 0, color: '#3d5a80' };
   }
 
@@ -133,12 +201,28 @@
     var limit = opt.limit || 40;
     var bookId = opt.bookId || 'all';
     q = String(q || '').trim();
-    if (!q || !data) return [];
+    if (!q) return [];
     var out = [];
     var lower = q.toLowerCase();
+    var seen = {};
+
+    // 0) 自定义词书里的前缀命中（用户导入的词往往不在内置词库里）
+    if (bookId === 'all' || extraByBook[bookId]) {
+      for (var ck in extra) {
+        if (!extra.hasOwnProperty(ck)) continue;
+        if (out.length >= limit) break;
+        if (ck.indexOf(lower) !== 0) continue;
+        var ce = extra[ck];
+        if (!inBook(ce, bookId)) continue;
+        if (seen[ck]) continue;
+        seen[ck] = 1;
+        ce.score = ck === lower ? 0 : 1;
+        out.push(ce);
+      }
+    }
+    if (!data) return out;
 
     // 1) 前缀命中（优先级最高）
-    var seen = {};
     for (var i = 0; i < data.w.length && out.length < limit; i++) {
       var w = data.w[i];
       if (w.indexOf(lower) !== 0) continue;
@@ -480,6 +564,7 @@
     getBooks: getBooks, bookById: bookById, bookEntries: bookEntries, bookCount: bookCount,
     inBook: inBook, lookup: lookup, lemma: lemma, entryAt: entryAt,
     search: search, tagNames: tagNames, online: online,
+    loadCustom: loadCustom, setCustomBooks: setCustomBooks, getCustomBooks: getCustomBooks,
     BOOK_TAG: BOOK_TAG, TAG_NAME: TAG_NAME
   };
 })(window);

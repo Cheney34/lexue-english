@@ -64,9 +64,12 @@
               '<div class="grow"><div class="row">' +
                 '<span class="bold">' + U.esc(b.name) + '</span>' +
                 (b.id === Store.settings.bookId ? T('<span class="chip brand" style="margin-left:8px">当前</span>') : '') +
+                (b.custom ? '<span class="chip" style="margin-left:8px">' + U.esc(I18N.L('customBook')) + '</span>' : '') +
               '</div>' +
               '<div class="muted xsmall mt8">' + U.esc(b.desc) + '</div></div>' +
-              '<span class="li-arrow">›</span>' +
+              (b.custom
+                ? '<button class="btn sm ghost" data-del="' + U.attr(b.id) + '">' + U.esc(I18N.L('delBook')) + '</button>'
+                : '<span class="li-arrow">›</span>') +
             '</div>' +
             '<div class="xsmall muted mt8" id="bp-' + b.id + T('">共 ') + b.count + T(' 词</div>') +
           '</div>');
@@ -81,8 +84,20 @@
       });
       el.appendChild(box);
       box.addEventListener('click', function (e) {
+        var del = e.target.closest('[data-del]');
+        if (del) { doDeleteBook(del.getAttribute('data-del')); return; }
         var c = e.target.closest('[data-b]');
         if (c) openBook(c.getAttribute('data-b'));
+      });
+
+      /* 导入词书：词书数据不进 APK、不进仓库，只落在本机 IndexedDB。
+         转换脚本见 tools/xlsx_to_book.ps1，输出的 JSON 直接在这里导入。 */
+      var impBox = U.dom(
+        '<button class="btn block ghost mt8" data-a="importbook">＋ ' + U.esc(I18N.L('importBook')) + '</button>' +
+        '<div class="muted xsmall mt8">' + U.esc(I18N.L('importBookHint')) + '</div>');
+      el.appendChild(impBox);
+      impBox.addEventListener('click', function (e) {
+        if (e.target.closest('[data-a="importbook"]')) doImportBook();
       });
 
       el.appendChild(U.dom(T('<div class="section-title">学习设置</div>')));
@@ -222,6 +237,109 @@
         Store.saveSettings();
       });
     });
+  }
+
+  /* ---------------------- 导入 / 删除自定义词书 ---------------------- */
+
+  var BOOK_COLORS = ['#3d5a80', '#4c956c', '#2a9d8f', '#5c6bc0', '#7b5ea7',
+    '#c9803a', '#b5651d', '#8d5a5a', '#2f6f4e', '#6b7280'];
+
+  function newBookId() {
+    return 'c' + Date.now().toString(36) + Math.random().toString(36).slice(2, 6);
+  }
+
+  /** 容忍三种写法：{kind:'wp-books',books:[…]} / {kind:'wp-book',name,words:[…]} / 裸数组 */
+  function normImportedBooks(o) {
+    var raw = [];
+    if (Array.isArray(o)) raw = o;
+    else if (o && Array.isArray(o.books)) raw = o.books;
+    else if (o && Array.isArray(o.words)) raw = [o];
+    var out = [];
+    for (var i = 0; i < raw.length; i++) {
+      var b = raw[i] || {};
+      var words = [];
+      var src = b.words || b.list || [];
+      for (var k = 0; k < src.length && words.length < 20000; k++) {
+        var w = src[k];
+        if (Array.isArray(w)) {
+          var wd = String(w[0] || '').trim();
+          if (!wd) continue;
+          words.push([wd, String(w[1] || '').trim(), String(w[2] || '').trim()]);
+        } else if (w && typeof w === 'object') {
+          var wd2 = String(w.word || w.w || w.text || '').trim();
+          if (!wd2) continue;
+          words.push([wd2, String(w.phonetic || w.p || '').trim(),
+            String(w.trans || w.def || w.definition || w.t || '').trim()]);
+        }
+      }
+      if (!words.length) continue;
+      var name = String(b.name || b.title || '').trim() || I18N.L('unnameBook');
+      out.push({
+        id: newBookId(),
+        name: name.slice(0, 40),
+        desc: String(b.desc || '').trim().slice(0, 80) ||
+          (I18N.L('customDesc') + words.length + I18N.L('wordUnit')),
+        color: b.color || BOOK_COLORS[out.length % BOOK_COLORS.length],
+        words: words
+      });
+    }
+    return out;
+  }
+
+  function doImportBook() {
+    U.toast(I18N.L('importOpening'));
+    Bridge.pickTextFile('*/*').then(function (r) {
+      if (!r) { U.toast(I18N.L('readFailed')); return; }
+      if (!r.ok) {
+        if (r.error === 'cancelled') return;
+        U.toast(I18N.L('importFailed') + (r.error || '?'));
+        return;
+      }
+      var parsed;
+      try { parsed = JSON.parse(r.text); }
+      catch (e) { U.toast(I18N.L('importBadJson')); return; }
+      var list = normImportedBooks(parsed);
+      if (!list.length) { U.toast(I18N.L('importEmpty')); return; }
+
+      Store.getMeta('cbooks').then(function (cur) {
+        var books = (cur || []).slice();
+        var n = 0;
+        list.forEach(function (nb) {
+          var at = -1;
+          for (var i = 0; i < books.length; i++) if (books[i].name === nb.name) { at = i; break; }
+          if (at >= 0) { nb.id = books[at].id; books[at] = nb; } else books.push(nb);
+          n++;
+        });
+        return Store.putMeta('cbooks', books).then(function () {
+          Dict.setCustomBooks(books);
+          U.toast(I18N.L('importDone') + n + I18N.L('importDoneEnd'));
+          App.refresh();
+        });
+      }, function () {
+        U.toast(I18N.L('noStore'));
+      });
+    });
+  }
+
+  function doDeleteBook(id) {
+    var b = Dict.bookById(id);
+    U.confirmBox(I18N.L('delBookTitle'),
+      I18N.L('delBookBody') + b.name + I18N.L('delBookBody2'), I18N.L('delBook'))
+      .then(function (ok) {
+        if (!ok) return;
+        Store.getMeta('cbooks').then(function (cur) {
+          var books = (cur || []).filter(function (x) { return x.id !== id; });
+          return Store.putMeta('cbooks', books).then(function () {
+            Dict.setCustomBooks(books);
+            if (Store.settings.bookId === id) {
+              Store.settings.bookId = 'core';
+              Store.saveSettings();
+            }
+            U.toast(I18N.L('deletedOk'));
+            App.refresh();
+          });
+        });
+      });
   }
 
   function doExport() {

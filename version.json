@@ -2,10 +2,23 @@
   "appName": "乐学英语",
   "appNameEn": "LexueEnglish",
   "packageName": "com.wordpalace.app",
-  "versionCode": 9,
-  "versionName": "1.3.0",
+  "versionCode": 10,
+  "versionName": "1.3.1",
   "buildDate": "2026-10-14",
   "history": [
+    {
+      "version": "1.3.1",
+      "code": 10,
+      "date": "2026-10-14",
+      "title": "可以导入自己的词书了：xlsx 转成 JSON，一键装进词书页",
+      "changes": [
+        "词书页底部新增「导入词书」：选一个 JSON 文件即可装进来，导入的书会单独列在词书列表里，可单独背诵、可删除",
+        "导入的词也参与查词和阅读点词：内置 2.6 万词库优先，内置里没有的词就用导入词书里的释义与音标",
+        "附带 tools/xlsx_to_book.ps1：把 xlsx 词书（单词/音标/释义，表头中英文都认）转成 App 能导入的 JSON，支持整个目录批量转、自动去重、多个词性合并成一行",
+        "同一本词书重复导入视为更新覆盖，不会越导越多；手机备份/恢复也会带上导入的词书",
+        "数据只存在你自己的手机上：第三方词书受各自版权限制，仓库与安装包里都不含任何词书数据"
+      ]
+    },
     {
       "version": "1.3.0",
       "code": 9,

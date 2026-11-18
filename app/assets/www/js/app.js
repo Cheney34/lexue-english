@@ -490,6 +490,8 @@
       // 本地存储不可用不致命：Store 的读写会落到内存兜底，只是关掉应用不留数据
       withTimeout(Store.init(), 9000, '本地存储').then(function () {
         tStore.done();
+        // 自定义词书依赖本地存储，必须等它开好再读（失败也不影响启动）
+        return withTimeout(Dict.loadCustom(), 6000, '自定义词书').then(function () {}, function () {});
       }, function (e) {
         tStore.soft(errText(e));
         soft.push(T('本地存储不可用，学习记录不会被保存'));

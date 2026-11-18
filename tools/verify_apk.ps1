@@ -1,5 +1,5 @@
 ﻿# 独立复核：不信任构建脚本的结论，直接从 APK 里把东西读出来比对
-param([string]$Apk = '乐学英语-v1.3.0.apk', [string]$Web = 'app\assets\www')
+param([string]$Apk = '乐学英语-v1.3.1.apk', [string]$Web = 'app\assets\www')
 
 Add-Type -AssemblyName System.IO.Compression
 Add-Type -AssemblyName System.IO.Compression.FileSystem
@@ -81,7 +81,18 @@ $markers = @(
     @('assets/www/js/reader.js', 'function startBi', '逐段翻译接线'),
     @('assets/www/js/reader.js', 'data-a="bi"', '工具栏对照按钮'),
     @('assets/www/css/app.css', '.rd-zh', '译文行样式'),
-    @('assets/www/js/i18n.js', 'biLabel', '对照按钮文案')
+    @('assets/www/js/i18n.js', 'biLabel', '对照按钮文案'),
+    # ---- 1.3.1：导入自定义词书 ----
+    @('assets/www/js/dict.js', 'function setCustomBooks', '自定义词书装载'),
+    @('assets/www/js/dict.js', 'function loadCustom', '启动时读回自定义词书'),
+    @('assets/www/js/dict.js', 'extraByBook', '自定义词书词表'),
+    @('assets/www/js/dict.js', 'custom: true', '自定义词条标记'),
+    @('assets/www/js/view-dict.js', 'data-a="importbook"', '导入词书按钮'),
+    @('assets/www/js/view-dict.js', 'function normImportedBooks', '导入格式宽容解析'),
+    @('assets/www/js/view-dict.js', 'function doDeleteBook', '删除导入的词书'),
+    @('assets/www/js/i18n.js', 'importBookHint', '导入说明文案'),
+    @('assets/www/js/i18n.js', 'customBook', '「导入」标记文案'),
+    @('assets/www/js/store.js', "putMeta('cbooks'", '备份/恢复带上自定义词书')
 )
 foreach ($m in $markers) {
     $t = TextOf $m[0]
